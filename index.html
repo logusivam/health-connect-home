@@ -589,21 +589,217 @@ footer{
 @keyframes gradShift{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
 
 /* ─── RESPONSIVE ──────────────────────────────────────── */
+
+/* ── Tablet landscape & small desktop (≤1100px) ── */
+@media(max-width:1100px){
+  #nav{padding:.9rem 1.8rem}
+  .roles-wrap{padding:0 1.2rem}
+  .role-row{gap:2.5rem}
+  .feats-grid{grid-template-columns:repeat(auto-fill,minmax(230px,1fr))}
+  .cta-island{padding:4rem 2.5rem}
+}
+
+/* ── Tablet portrait (≤900px) ── */
 @media(max-width:900px){
-  .role-row{grid-template-columns:1fr}
-  .role-row.rev{direction:ltr}
-  .dc-left,.dc-right{display:none}
-  .dc-main{width:92%}
-  .h-scene{height:300px}
+  /* Nav: hide links, show hamburger-style pill only */
+  #nav{padding:.85rem 1.4rem}
   #nav .nav-links{display:none}
-  footer{flex-direction:column;text-align:center}
-  .ft-links{justify-content:center}
+  .nav-pill{font-size:.8rem;padding:.48rem 1.1rem}
+
+  /* Hero */
+  #hero{padding:7rem 1.4rem 4rem}
+  .h-sub{font-size:.97rem;margin:1.6rem auto 2.2rem}
+  .h-ctas{gap:.75rem}
+  .btn-solid,.btn-out{padding:.76rem 1.5rem;font-size:.87rem}
+
+  /* Hero 3D scene */
+  .dc-left,.dc-right{display:none}
+  .dc-main{width:88%;left:50%;transform:translateX(-50%) rotateX(8deg)}
+  .h-scene{height:280px;margin-top:3rem}
+
+  /* Roles */
+  .role-row{grid-template-columns:1fr;gap:2.2rem}
+  .role-row.rev{direction:ltr}
+  .role-vis{transform:none;opacity:1}   /* don't need slide-in on stack */
+  .role-text{max-width:100%}
+  .roles-wrap{padding:0 1rem}
+  .role-row{padding:3.5rem 0}
+
+  /* Features */
+  .feats-grid{grid-template-columns:repeat(2,1fr)}
+  .feat-tabs{gap:.4rem}
+  .ftab{font-size:.75rem;padding:.42rem 1rem}
+
+  /* Stats */
+  .stats-row{grid-template-columns:repeat(2,1fr)}
+
+  /* CTA */
+  .cta-island{padding:3.5rem 2rem;border-radius:20px}
+  .cta-btns{flex-direction:column;align-items:center}
+  .cta-btns .mw{width:100%;max-width:280px}
+  .cta-btns .mw a{width:100%;justify-content:center}
+
+  /* Footer */
+  footer{flex-direction:column;text-align:center;padding:2.2rem 1.4rem;gap:1.2rem}
+  .ft-links{justify-content:center;gap:1.4rem}
+
+  /* Section spacing */
+  .section{padding:5.5rem 1.4rem}
+  .sec-desc{margin-bottom:3rem}
 }
-@media(max-width:600px){
-  .h-title{font-size:clamp(2.4rem,10vw,3.5rem)}
-  .role-name{font-size:2rem}
-  .section{padding:5rem 1.2rem}
+
+/* ── Mobile landscape & large phones (≤680px) ── */
+@media(max-width:680px){
+  /* Hero title */
+  .h-title{font-size:clamp(2.6rem,9vw,3.8rem);letter-spacing:-.04em}
+  .h-eyebrow{font-size:.68rem;padding:.35rem .9rem}
+  .h-sub{font-size:.92rem;max-width:100%}
+
+  /* Hero scene — single card only, smaller */
+  .dc-main{width:92%}
+  .h-scene{height:240px}
+
+  /* Role section */
+  .role-name{font-size:clamp(1.8rem,6vw,2.4rem)}
+  .role-badge{font-size:.7rem}
+  .rfeat{font-size:.84rem}
+
+  /* Role vis internals — tighten padding */
+  .role-vis-inner{padding:1.2rem 1.3rem}
+  .rvis-title{font-size:1rem}
+  .appt-item{padding:.55rem .7rem}
+  .admin-grid{gap:.5rem}
+  .ag-item{padding:.65rem}
+  .ag-val{font-size:1.25rem}
+
+  /* Features */
+  .feats-grid{grid-template-columns:1fr}
+  .feat-card{padding:1.8rem 1.5rem}
+
+  /* Stats */
+  .stats-row{grid-template-columns:repeat(2,1fr);gap:1rem}
+  .stat-card{padding:1.6rem 1.2rem}
+  .snum{font-size:clamp(1.6rem,7vw,2.4rem)}
+
+  /* Sections */
+  .section{padding:4.5rem 1.2rem}
+  .sec-title{font-size:clamp(1.75rem,6vw,2.6rem)}
+  .sec-desc{font-size:.88rem}
+
+  /* CTA */
+  .cta-title{font-size:clamp(1.7rem,6vw,2.2rem)}
+  .cta-island{padding:3rem 1.4rem}
+
+  /* Footer */
+  .ft-links{gap:1rem;flex-wrap:wrap}
+  .ft-links a{font-size:.75rem}
 }
+
+/* ── Small mobile (≤480px) ── */
+@media(max-width:480px){
+  /* Nav */
+  #nav{padding:.8rem 1rem}
+  .nav-brand{font-size:1.15rem}
+  .nav-pill{font-size:.76rem;padding:.44rem .9rem}
+
+  /* Hero */
+  #hero{padding:6rem 1rem 3.5rem}
+  .h-title{font-size:clamp(2.2rem,10vw,3.2rem);letter-spacing:-.035em}
+  .h-eyebrow{font-size:.64rem;letter-spacing:.07em}
+  .h-sub{font-size:.88rem;line-height:1.7;margin:1.4rem auto 2rem}
+  .btn-solid,.btn-out{padding:.7rem 1.3rem;font-size:.84rem;gap:6px}
+  .h-scene{height:200px;margin-top:2.5rem}
+  .dc-main{width:96%}
+
+  /* Scroll cue */
+  .scroll-cue{margin-top:2.5rem}
+
+  /* Role rows */
+  .role-row{padding:2.5rem 0}
+  .role-name{font-size:clamp(1.6rem,8vw,2.2rem)}
+  .role-desc{font-size:.87rem}
+  .role-cta{font-size:.83rem;padding:.65rem 1.4rem}
+  .rfeat{font-size:.82rem;gap:8px}
+  .rfeat-check{width:18px;height:18px}
+
+  /* Features */
+  .feat-tabs{gap:.35rem}
+  .ftab{font-size:.72rem;padding:.38rem .85rem}
+  .feat-name{font-size:.95rem}
+  .feat-text{font-size:.8rem}
+
+  /* Stats — single column */
+  .stats-row{grid-template-columns:1fr;max-width:340px}
+  .stat-card{padding:1.5rem 1.4rem}
+  .snum{font-size:clamp(2rem,8vw,2.8rem)}
+
+  /* CTA */
+  .cta-island{padding:2.5rem 1.1rem;border-radius:16px}
+  .cta-title{font-size:clamp(1.6rem,7vw,2rem)}
+  .cta-sub{font-size:.87rem}
+  .cta-eyebrow{font-size:.65rem}
+
+  /* Section */
+  .section{padding:4rem 1rem}
+  .sec-eyebrow span{font-size:.65rem}
+
+  /* Footer */
+  footer{padding:2rem 1rem;gap:1rem}
+  .ft-brand{font-size:1rem}
+  .ft-copy{font-size:.72rem}
+
+  /* Loader */
+  .ld-logo{font-size:1.7rem}
+  .ld-bar-wrap{width:220px}
+
+  /* Cursor — hide on touch */
+  #c-dot,#c-ring,#c-trail{display:none}
+  body{cursor:auto}
+}
+
+/* ── Very small (≤360px) ── */
+@media(max-width:360px){
+  .h-title{font-size:clamp(1.9rem,10vw,2.8rem)}
+  .role-name{font-size:clamp(1.5rem,9vw,2rem)}
+  .btn-solid,.btn-out{width:100%;justify-content:center}
+  .h-ctas{flex-direction:column;align-items:center;gap:.7rem}
+  .stats-row{max-width:100%}
+  .cta-island{padding:2rem .9rem}
+}
+
+/* ─── HAMBURGER + MOBILE MENU ─────────────────────────── */
+.nav-ham{
+  display:none;flex-direction:column;gap:5px;padding:6px;
+  background:transparent;border:none;cursor:pointer;z-index:201
+}
+.nav-ham span{
+  display:block;width:22px;height:2px;background:#fff;
+  border-radius:2px;transition:transform .35s,opacity .25s,width .25s
+}
+.nav-ham.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.nav-ham.open span:nth-child(2){opacity:0;width:0}
+.nav-ham.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+
+/* Mobile drawer */
+#mob-menu{
+  position:fixed;inset:0;z-index:190;
+  background:rgba(10,16,32,.97);backdrop-filter:blur(24px);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1.8rem;
+  opacity:0;pointer-events:none;transform:translateY(-12px);
+  transition:opacity .35s,transform .35s
+}
+#mob-menu.open{opacity:1;pointer-events:all;transform:translateY(0)}
+#mob-menu a{
+  font-family:'Plus Jakarta Sans',sans-serif;font-weight:700;font-size:1.6rem;
+  color:rgba(255,255,255,.75);text-decoration:none;letter-spacing:-.02em;
+  transition:color .2s,transform .2s;display:block
+}
+#mob-menu a:hover{color:#fff;transform:translateX(6px)}
+#mob-menu .mob-pill{
+  margin-top:.5rem;padding:.75rem 2.2rem;background:var(--b6);border-radius:10px;
+  color:#fff;font-size:1rem;font-weight:600
+}
+@media(max-width:900px){.nav-ham{display:flex}}
 </style>
 </head>
 <body>
@@ -639,15 +835,28 @@ footer{
 <!-- NAV -->
 <nav id="nav">
   <a href="#" class="nav-brand">Health<b>Connect</b></a>
-  <ul class="nav-links">
+  <ul class="nav-links" id="nav-links">
     <li><a href="#patient-role">Patient</a></li>
     <li><a href="#doctor-role">Doctor</a></li>
     <li><a href="#admin-role">Admin</a></li>
     <li><a href="#features">Features</a></li>
     <li><a href="#stats">Stats</a></li>
   </ul>
-  <div class="mw"><a href="#cta" class="nav-pill">Get Started</a></div>
+  <div class="mw" id="nav-pill-wrap"><a href="#cta" class="nav-pill">Get Started</a></div>
+  <button class="nav-ham" id="nav-ham" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
 </nav>
+
+<!-- MOBILE MENU DRAWER -->
+<div id="mob-menu">
+  <a href="#patient-role">Patient</a>
+  <a href="#doctor-role">Doctor</a>
+  <a href="#admin-role">Admin</a>
+  <a href="#features">Features</a>
+  <a href="#stats">Stats</a>
+  <a href="#cta" class="mob-pill">Get Started</a>
+</div>
 
 <main>
 
@@ -661,7 +870,7 @@ footer{
 
   <div class="h-eyebrow" id="eyebrow">
     <span class="eye-dot"></span>
-    Unified Healthcare Platform · 2026
+    Unified Healthcare Platform · 2025
   </div>
 
   <h1 class="h-title" id="htitle">
@@ -1081,7 +1290,7 @@ footer{
     <li><a href="#features">Features</a></li>
     <li><a href="#stats">Platform Stats</a></li>
   </ul>
-  <span class="ft-copy">© 2026 HealthConnect. All rights reserved.</span>
+  <span class="ft-copy">© 2025 HealthConnect. All rights reserved.</span>
 </footer>
 
 <script>
@@ -1097,6 +1306,7 @@ footer{
   const scene = new THREE.Scene();
   const cam = new THREE.PerspectiveCamera(55,innerWidth/innerHeight,.1,120);
   cam.position.set(0,0,8);
+
 
   /* ── Particle network ── */
   const N = 150, pts=[];
@@ -1123,6 +1333,232 @@ footer{
   eg.setAttribute('position',new THREE.BufferAttribute(new Float32Array(ep),3));
   scene.add(new THREE.LineSegments(eg,new THREE.LineBasicMaterial({color:0x1d4ed8,transparent:true,opacity:.09})));
 
+  /* ── Helper: line from points ── */
+  const mkLine=(points,col,op)=>{
+    const g=new THREE.BufferGeometry().setFromPoints(points);
+    return new THREE.Line(g,new THREE.LineBasicMaterial({color:col,transparent:true,opacity:op}));
+  };
+  const mkLines=(segments,col,op)=>{
+    const flat=[];segments.forEach(([a,b])=>{flat.push(a.x,a.y,a.z,b.x,b.y,b.z);});
+    const g=new THREE.BufferGeometry();
+    g.setAttribute('position',new THREE.BufferAttribute(new Float32Array(flat),3));
+    return new THREE.LineSegments(g,new THREE.LineBasicMaterial({color:col,transparent:true,opacity:op}));
+  };
+
+  /* ════════════════════════
+     1. DNA DOUBLE HELIX  (left side, large)
+  ════════════════════════ */
+  const dnaGroup = new THREE.Group();
+  dnaGroup.position.set(-9, 0, -6);
+  const strand1=[], strand2=[];
+  const rungs=[];
+  const dnaLen=80, dnaR=1.4, dnaStep=.22, dnaTwist=.26;
+  for(let i=0;i<dnaLen;i++){
+    const a=i*dnaTwist, y=i*dnaStep-dnaLen*dnaStep*.5;
+    strand1.push(new THREE.Vector3(Math.cos(a)*dnaR, y, Math.sin(a)*dnaR));
+    strand2.push(new THREE.Vector3(Math.cos(a+Math.PI)*dnaR, y, Math.sin(a+Math.PI)*dnaR));
+  }
+  const c1=new THREE.CatmullRomCurve3(strand1);
+  const c2=new THREE.CatmullRomCurve3(strand2);
+  dnaGroup.add(mkLine(c1.getPoints(300), 0x2dd4bf, .22));
+  dnaGroup.add(mkLine(c2.getPoints(300), 0x60a5fa, .22));
+  for(let i=0;i<dnaLen;i+=4){
+    rungs.push([strand1[i], strand2[i]]);
+  }
+  dnaGroup.add(mkLines(rungs, 0x818cf8, .16));
+  /* base pair dots */
+  const bpBuf=new Float32Array(strand1.length*3+strand2.length*3);
+  strand1.forEach((p,i)=>bpBuf.set([p.x,p.y,p.z],i*3));
+  strand2.forEach((p,i)=>bpBuf.set([p.x,p.y,p.z],(strand1.length+i)*3));
+  const bpG=new THREE.BufferGeometry(); bpG.setAttribute('position',new THREE.BufferAttribute(bpBuf,3));
+  dnaGroup.add(new THREE.Points(bpG,new THREE.PointsMaterial({size:.08,color:0x2dd4bf,transparent:true,opacity:.35})));
+  scene.add(dnaGroup);
+
+  /* ════════════════════════
+     2. HEART OUTLINE  (center, theme-colored, animated ECG)
+  ════════════════════════ */
+  const heartGroup = new THREE.Group();
+  heartGroup.position.set(0, 0, -3);
+
+  const hSteps = 180;
+  const heartScale = 2.2;
+
+  /* outer heart outline — teal (#2dd4bf) */
+  const heartPts = [];
+  for(let i=0;i<=hSteps;i++){
+    const t2=(i/hSteps)*Math.PI*2;
+    const x = heartScale*.0625*(16*Math.pow(Math.sin(t2),3));
+    const y = heartScale*.0625*(13*Math.cos(t2)-5*Math.cos(2*t2)-2*Math.cos(3*t2)-Math.cos(4*t2));
+    heartPts.push(new THREE.Vector3(x, y, 0));
+  }
+  const heartOutline = mkLine(heartPts, 0x2dd4bf, .45);
+  heartGroup.add(heartOutline);
+
+  /* inner glow ring 1 — blue */
+  const heartPts2 = [];
+  for(let i=0;i<=hSteps;i++){
+    const t2=(i/hSteps)*Math.PI*2, s=.72;
+    const x = s*heartScale*.0625*(16*Math.pow(Math.sin(t2),3));
+    const y = s*heartScale*.0625*(13*Math.cos(t2)-5*Math.cos(2*t2)-2*Math.cos(3*t2)-Math.cos(4*t2));
+    heartPts2.push(new THREE.Vector3(x, y, 0));
+  }
+  heartGroup.add(mkLine(heartPts2, 0x60a5fa, .18));
+
+  /* inner glow ring 2 — indigo */
+  const heartPts3 = [];
+  for(let i=0;i<=hSteps;i++){
+    const t2=(i/hSteps)*Math.PI*2, s=.44;
+    const x = s*heartScale*.0625*(16*Math.pow(Math.sin(t2),3));
+    const y = s*heartScale*.0625*(13*Math.cos(t2)-5*Math.cos(2*t2)-2*Math.cos(3*t2)-Math.cos(4*t2));
+    heartPts3.push(new THREE.Vector3(x, y, 0));
+  }
+  heartGroup.add(mkLine(heartPts3, 0x818cf8, .12));
+
+  /* ── Animated ECG pulse line ──
+     We build a FULL wide ECG strip and animate a "scan window" by updating
+     vertex positions each frame so only the visible window is drawn,
+     giving the illusion of a travelling pulse.
+  */
+  const ECG_SEGS = 300;         // total vertices in the line
+  const ECG_WIDTH = 8.0;        // world-units wide
+  const ECG_Y = -2.5;           // sits just below the heart
+  const ecgBuf = new Float32Array(ECG_SEGS * 3);
+
+  /* ECG waveform function: one PQRST cycle over [0,1] */
+  function ecgWave(u) {
+    // baseline
+    let y = 0;
+    // P wave  (0.08–0.18)
+    if(u > .08 && u < .18) y = .18 * Math.sin((u-.08)/(.18-.08)*Math.PI);
+    // PR segment flat
+    // Q dip   (0.22–0.25)
+    else if(u > .22 && u < .25) y = -.12 * Math.sin((u-.22)/(.25-.22)*Math.PI);
+    // R spike (0.25–0.32)
+    else if(u > .25 && u < .32) y = 1.4  * Math.sin((u-.25)/(.32-.25)*Math.PI);
+    // S dip   (0.32–0.36)
+    else if(u > .32 && u < .36) y = -.25 * Math.sin((u-.32)/(.36-.32)*Math.PI);
+    // ST segment
+    // T wave  (0.42–0.58)
+    else if(u > .42 && u < .58) y = .28  * Math.sin((u-.42)/(.58-.42)*Math.PI);
+    return y;
+  }
+
+  /* Fill geometry with current frame's window */
+  function updateECG(offset) {
+    for(let i=0;i<ECG_SEGS;i++){
+      const frac = i / (ECG_SEGS-1);              // 0→1 across strip
+      const x = frac * ECG_WIDTH - ECG_WIDTH/2;
+      /* shift the waveform by offset so it scrolls left */
+      const u = ((frac + offset) % 1 + 1) % 1;
+      const y = ecgWave(u) * .85 + ECG_Y;
+      ecgBuf[i*3]   = x;
+      ecgBuf[i*3+1] = y;
+      ecgBuf[i*3+2] = 0;
+    }
+  }
+  updateECG(0);
+  const ecgGeom = new THREE.BufferGeometry();
+  ecgGeom.setAttribute('position', new THREE.BufferAttribute(ecgBuf, 3));
+  ecgGeom.attributes.position.needsUpdate = true;
+
+  /* Gradient effect: brighter near the leading edge using two overlaid lines */
+  const ecgLineFaint = new THREE.Line(ecgGeom,
+    new THREE.LineBasicMaterial({color:0x2dd4bf, transparent:true, opacity:.25}));
+  heartGroup.add(ecgLineFaint);
+
+  /* bright "head" segment — separate short geometry for the glowing tip */
+  const HEAD_SEGS = 40;
+  const headBuf = new Float32Array(HEAD_SEGS * 3);
+  const headGeom = new THREE.BufferGeometry();
+  headGeom.setAttribute('position', new THREE.BufferAttribute(headBuf, 3));
+  const ecgLineHead = new THREE.Line(headGeom,
+    new THREE.LineBasicMaterial({color:0x5eead4, transparent:true, opacity:.9}));
+  heartGroup.add(ecgLineHead);
+
+  /* glowing dot at the current draw position */
+  const dotBuf = new Float32Array(3);
+  const dotGeom = new THREE.BufferGeometry();
+  dotGeom.setAttribute('position', new THREE.BufferAttribute(dotBuf, 3));
+  const ecgDot = new THREE.Points(dotGeom,
+    new THREE.PointsMaterial({color:0xffffff, size:.18, transparent:true, opacity:.9}));
+  heartGroup.add(ecgDot);
+
+  scene.add(heartGroup);
+
+
+  /* ════════════════════════
+     3. BRAIN OUTLINE  (top-center-ish)
+  ════════════════════════ */
+  const brainGroup = new THREE.Group();
+  brainGroup.position.set(1, 7, -8);
+
+  const brainMat = new THREE.LineBasicMaterial({color:0xa78bfa,transparent:true,opacity:.2});
+
+  // Outer skull silhouette — approximate brain shape as bezier-style path
+  function brainContour(pts, col, op){
+    const curve=new THREE.CatmullRomCurve3(pts, true);
+    const g=new THREE.BufferGeometry().setFromPoints(curve.getPoints(200));
+    return new THREE.Line(g, new THREE.LineBasicMaterial({color:col,transparent:true,opacity:op}));
+  }
+
+  // Main outer brain shape (top hemisphere)
+  const outerPts=[
+    new THREE.Vector3(0, 3, 0),
+    new THREE.Vector3(1.6, 2.8, 0),
+    new THREE.Vector3(2.8, 1.8, 0),
+    new THREE.Vector3(3.0, .4, 0),
+    new THREE.Vector3(2.5, -.8, 0),
+    new THREE.Vector3(1.8, -1.4, 0),
+    new THREE.Vector3(.6, -1.6, 0),
+    new THREE.Vector3(0, -1.5, 0),
+    new THREE.Vector3(-.6, -1.6, 0),
+    new THREE.Vector3(-1.8, -1.4, 0),
+    new THREE.Vector3(-2.5, -.8, 0),
+    new THREE.Vector3(-3.0, .4, 0),
+    new THREE.Vector3(-2.8, 1.8, 0),
+    new THREE.Vector3(-1.6, 2.8, 0),
+  ];
+  brainGroup.add(brainContour(outerPts, 0xa78bfa, .22));
+
+  // Brain folds (gyri/sulci curves)
+  const folds=[
+    // top left hemisphere folds
+    [new THREE.Vector3(-2.2,2,0),new THREE.Vector3(-1.5,2.4,0),new THREE.Vector3(-.6,2.5,0),new THREE.Vector3(.2,2.2,0)],
+    [new THREE.Vector3(-2.6,.8,0),new THREE.Vector3(-1.8,1.4,0),new THREE.Vector3(-.8,1.6,0),new THREE.Vector3(.1,1.3,0)],
+    [new THREE.Vector3(-2.8,-.2,0),new THREE.Vector3(-2,.6,0),new THREE.Vector3(-1,.8,0),new THREE.Vector3(-.1,.5,0)],
+    [new THREE.Vector3(-2.4,-1,0),new THREE.Vector3(-1.5,-.4,0),new THREE.Vector3(-.6,-.2,0),new THREE.Vector3(.1,-.5,0)],
+    // right hemisphere folds
+    [new THREE.Vector3(2.2,2,0),new THREE.Vector3(1.5,2.4,0),new THREE.Vector3(.6,2.5,0)],
+    [new THREE.Vector3(2.6,.8,0),new THREE.Vector3(1.8,1.4,0),new THREE.Vector3(.8,1.6,0)],
+    [new THREE.Vector3(2.8,-.2,0),new THREE.Vector3(2,.6,0),new THREE.Vector3(1,.8,0)],
+    [new THREE.Vector3(2.4,-1,0),new THREE.Vector3(1.5,-.4,0),new THREE.Vector3(.6,-.2,0)],
+    // centre divide
+    [new THREE.Vector3(0,3,0),new THREE.Vector3(.1,2,0),new THREE.Vector3(0,1,0),new THREE.Vector3(.1,0,0),new THREE.Vector3(0,-1,0),new THREE.Vector3(0,-1.5,0)],
+  ];
+  folds.forEach(fp=>{
+    const fc=new THREE.CatmullRomCurve3(fp);
+    brainGroup.add(mkLine(fc.getPoints(60), 0xa78bfa, .13));
+  });
+  // brainstem
+  const stemPts=[new THREE.Vector3(-.3,-1.5,0),new THREE.Vector3(-.25,-2.1,0),new THREE.Vector3(.0,-2.5,0),new THREE.Vector3(.2,-2.1,0),new THREE.Vector3(.3,-1.5,0)];
+  brainGroup.add(mkLine(stemPts, 0xa78bfa, .18));
+  // cerebellum
+  const cerebPts=[
+    new THREE.Vector3(-.3,-1.6,0),new THREE.Vector3(-.8,-2.0,0),new THREE.Vector3(-1.2,-2.1,0),
+    new THREE.Vector3(-1.3,-1.7,0),new THREE.Vector3(-.8,-1.5,0)
+  ];
+  brainGroup.add(brainContour(cerebPts, 0x818cf8, .14));
+  for(let ci=0;ci<3;ci++){
+    const cbPts=[
+      new THREE.Vector3(-.4-ci*.1,-1.62-ci*.06,0),
+      new THREE.Vector3(-.7-ci*.1,-1.85-ci*.06,0),
+      new THREE.Vector3(-1.0-ci*.05,-1.9-ci*.06,0),
+    ];
+    brainGroup.add(mkLine(cbPts, 0x818cf8, .1));
+  }
+
+  scene.add(brainGroup);
+
   /* ── Wireframe shapes ── */
   const ws=(geo,col,op)=>new THREE.Mesh(geo,new THREE.MeshBasicMaterial({color:col,wireframe:true,transparent:true,opacity:op}));
   const shapeDefs=[
@@ -1135,43 +1571,60 @@ footer{
   ];
   const shapes = shapeDefs.map(([mesh,x,y,z])=>{ mesh.position.set(x,y,z); scene.add(mesh); return mesh; });
 
-  /* ── DNA helix decoration ── */
-  const helixPts1=[],helixPts2=[];
-  for(let i=0;i<60;i++){
-    const a=i*.22,r=1.1,y=i*.18-5;
-    helixPts1.push(new THREE.Vector3(Math.cos(a)*r,y,Math.sin(a)*r-8));
-    helixPts2.push(new THREE.Vector3(Math.cos(a+Math.PI)*r,y,Math.sin(a+Math.PI)*r-8));
-  }
-  const hCurve1=new THREE.CatmullRomCurve3(helixPts1);
-  const hCurve2=new THREE.CatmullRomCurve3(helixPts2);
-  const hGeom1=new THREE.BufferGeometry().setFromPoints(hCurve1.getPoints(200));
-  const hGeom2=new THREE.BufferGeometry().setFromPoints(hCurve2.getPoints(200));
-  const hMat=new THREE.LineBasicMaterial({color:0x0d9488,transparent:true,opacity:.18});
-  const hel1=new THREE.Line(hGeom1,hMat);
-  const hel2=new THREE.Line(hGeom2,hMat.clone());
-  scene.add(hel1);scene.add(hel2);
-  /* rungs */
-  for(let i=0;i<helixPts1.length;i+=3){
-    const rg=new THREE.BufferGeometry();
-    rg.setAttribute('position',new THREE.BufferAttribute(new Float32Array([
-      helixPts1[i].x,helixPts1[i].y,helixPts1[i].z,
-      helixPts2[i].x,helixPts2[i].y,helixPts2[i].z
-    ]),3));
-    scene.add(new THREE.LineSegments(rg,new THREE.LineBasicMaterial({color:0x2dd4bf,transparent:true,opacity:.14})));
-  }
-
   let mx=0,my=0;
   document.addEventListener('mousemove',e=>{mx=(e.clientX/innerWidth-.5)*2;my=-(e.clientY/innerHeight-.5)*2;});
 
   const clock=new THREE.Clock();
   const spds=[.12,.08,.09,.13,.07,.11];
+  let ecgOffset = 0;
+
   function tick(){
     requestAnimationFrame(tick);
     const t=clock.getElapsedTime();
-    const nt=new THREE.Group();
-    nt.rotation.y=t*.015; nt.rotation.x=t*.007;
     shapes.forEach((s,i)=>{s.rotation.x+=.001*spds[i]*8;s.rotation.y+=.001*spds[(i+1)%6]*7;});
-    hel1.rotation.y=t*.04; hel2.rotation.y=t*.04;
+
+    /* DNA slow rotation */
+    dnaGroup.rotation.y = t * .06;
+
+    /* ── ECG animation ── */
+    ecgOffset = (ecgOffset + .004) % 1;   // scroll speed
+    updateECG(ecgOffset);
+    ecgGeom.attributes.position.needsUpdate = true;
+
+    /* Head segment: last HEAD_SEGS points of the full strip */
+    const headStart = ECG_SEGS - HEAD_SEGS;
+    for(let i=0;i<HEAD_SEGS;i++){
+      headBuf[i*3]   = ecgBuf[(headStart+i)*3];
+      headBuf[i*3+1] = ecgBuf[(headStart+i)*3+1];
+      headBuf[i*3+2] = 0;
+    }
+    headGeom.attributes.position.needsUpdate = true;
+
+    /* Glowing dot at tip */
+    dotBuf[0] = ecgBuf[(ECG_SEGS-1)*3];
+    dotBuf[1] = ecgBuf[(ECG_SEGS-1)*3+1];
+    dotBuf[2] = 0;
+    dotGeom.attributes.position.needsUpdate = true;
+
+    /* Heart beat: pulse in sync with R-spike of ECG waveform.
+       R-spike is at u≈0.285; detect when the leading edge crosses it. */
+    const leadU = ((1 + ecgOffset) % 1 + 1) % 1;  // front of strip
+    const beatPhase = ((leadU - .285 + 1) % 1);
+    /* beatPhase is 0 right at the beat, rises to 1 over the cycle */
+    const beatScale = 1 + Math.max(0, .12 * Math.exp(-beatPhase * 18));
+    heartGroup.scale.set(beatScale, beatScale, 1);
+
+    /* Outline opacity brightens on beat */
+    heartOutline.material.opacity = .38 + Math.max(0, .55 * Math.exp(-beatPhase * 18));
+
+    /* subtle float */
+    heartGroup.position.y = Math.sin(t * .4) * .25;
+
+    /* Brain slow sway */
+    brainGroup.rotation.y = Math.sin(t * .18) * .25;
+    brainGroup.rotation.z = Math.sin(t * .22) * .06;
+    brainGroup.position.y = 7 + Math.sin(t * .35) * .4;
+
     cam.position.x+=(mx*.5-cam.position.x)*.02;
     cam.position.y+=(my*.5-cam.position.y)*.02;
     R.render(scene,cam);
@@ -1573,6 +2026,40 @@ sections.forEach(({id,nav})=>{
     }
   });
 });
+
+/* ════════════════════════════════════════
+   HAMBURGER / MOBILE MENU
+════════════════════════════════════════ */
+const ham = document.getElementById('nav-ham');
+const mobMenu = document.getElementById('mob-menu');
+let menuOpen = false;
+
+function toggleMenu(force){
+  menuOpen = force !== undefined ? force : !menuOpen;
+  ham.classList.toggle('open', menuOpen);
+  mobMenu.classList.toggle('open', menuOpen);
+  document.body.style.overflow = menuOpen ? 'hidden' : '';
+  lenis[menuOpen ? 'stop' : 'start']();
+}
+
+ham.addEventListener('click', ()=> toggleMenu());
+
+/* Close on any mobile menu link click */
+mobMenu.querySelectorAll('a').forEach(a=>{
+  a.addEventListener('click', ()=>{
+    toggleMenu(false);
+    const target = document.querySelector(a.getAttribute('href'));
+    if(target) setTimeout(()=> lenis.scrollTo(target,{offset:-90,duration:1.3}), 50);
+  });
+});
+
+/* Hide nav-pill on mobile (hamburger takes over) */
+function checkPill(){
+  const pill = document.getElementById('nav-pill-wrap');
+  if(pill) pill.style.display = window.innerWidth <= 900 ? 'none' : '';
+}
+checkPill();
+window.addEventListener('resize', checkPill);
 </script>
 </body>
 </html>
