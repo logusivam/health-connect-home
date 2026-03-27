@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HealthConnect — Your Health, Connected</title>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.39/dist/lenis.min.js"></script>
+<link rel="stylesheet" href="./assets/css/style.css">
+</head>
+<body>
+
+<!-- LOADER -->
+<div id="loader">
+  <div class="ld-ring ld-r1"></div>
+  <div class="ld-ring ld-r2"></div>
+  <div class="ld-ring ld-r3"></div>
+  <div class="ld-inner">
+    <div class="ld-logo"><div class="ld-logo-inner">Health<span>Connect</span></div></div>
+    <div class="ld-bar-wrap">
+      <div class="ld-bar" id="ldb"></div>
+      <div class="ld-bar-glow" id="ldg"></div>
+    </div>
+    <div class="ld-pct" id="ldp">0%</div>
+  </div>
+</div>
+
+<!-- CURSOR -->
+<div id="c-dot"></div>
+<div id="c-ring"></div>
+<div id="c-trail"></div>
+
+<!-- THREE.JS CANVAS -->
+<canvas id="bg"></canvas>
+<div class="grid"></div>
+<div class="vignette"></div>
+
+<!-- SCROLL PROGRESS -->
+<div id="spb"></div>
+
+<!-- NAV -->
+<nav id="nav">
+  <a href="#" class="nav-brand">Health<b>Connect</b></a>
+  <ul class="nav-links" id="nav-links">
+    <li><a href="#patient-role">Patient</a></li>
+    <li><a href="#doctor-role">Doctor</a></li>
+    <li><a href="#admin-role">Admin</a></li>
+    <li><a href="#features">Features</a></li>
+    <li><a href="#stats">Stats</a></li>
+  </ul>
+  <div class="mw" id="nav-pill-wrap"><a href="#cta" class="nav-pill">Get Started</a></div>
+  <button class="nav-ham" id="nav-ham" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- MOBILE MENU DRAWER -->
+<div id="mob-menu">
+  <a href="#patient-role">Patient</a>
+  <a href="#doctor-role">Doctor</a>
+  <a href="#admin-role">Admin</a>
+  <a href="#features">Features</a>
+  <a href="#stats">Stats</a>
+  <a href="#cta" class="mob-pill">Get Started</a>
+</div>
+
+<main>
+
+<!-- ═══════════════════════ HERO ═══════════════════════ -->
+<section id="hero">
+  <div class="hero-aurora">
+    <div class="aurora-orb ao1"></div>
+    <div class="aurora-orb ao2"></div>
+    <div class="aurora-orb ao3"></div>
+  </div>
+
+  <div class="h-eyebrow" id="eyebrow">
+    <span class="eye-dot"></span>
+    Unified Healthcare Platform · 2026
+  </div>
+
+  <h1 class="h-title" id="htitle">
+    <div class="line-break">
+      <span class="word" data-word="One">One</span>
+      <span class="word" data-word="Platform,">Platform,</span>
+    </div>
+    <div class="line-break">
+      <span class="word grad-b" data-word="Every">Every</span>
+      <span class="word" data-word="Role.">Role.</span>
+    </div>
+    <div class="line-break">
+      <span class="word grad-t" data-word="Every">Every</span>
+      <span class="word" data-word="Need.">Need.</span>
+    </div>
+  </h1>
+
+  <p class="h-sub" id="hsub">HealthConnect bridges patients, doctors, and administrators into one seamless ecosystem — streamlining appointments, records, and care from a single intelligent dashboard.</p>
+
+  <div class="h-ctas" id="hctas">
+    <div class="mw"><a href="#patient-role" class="btn-solid">Explore Portals <span class="cta-arr">→</span></a></div>
+    <div class="mw"><a href="#features" class="btn-out">See Features</a></div>
+  </div>
+
+  <div class="scroll-cue">
+    <div class="sc-mouse"><div class="sc-ball"></div></div>
+    <span>Scroll to explore</span>
+  </div>
+
+  <!-- 3D DASHBOARD SCENE -->
+  <div class="h-scene" id="hscene">
+    <!-- Left: Patient side card -->
+    <div class="dc dc-left">
+      <div class="dp">
+        <div class="side-label">Patient Portal</div>
+        <div class="ring-wrap">
+          <div class="rw">
+            <svg width="60" height="60" viewBox="0 0 60 60">
+              <circle cx="30" cy="30" r="22" fill="none" stroke="rgba(255,255,255,.07)" stroke-width="5"/>
+              <circle cx="30" cy="30" r="22" fill="none" stroke="#2563eb" stroke-width="5"
+                stroke-dasharray="138.2" stroke-dashoffset="34" stroke-linecap="round"/>
+            </svg>
+            <div class="rl"><span class="rv" style="color:var(--b4)">75%</span><span class="rs2">Health</span></div>
+          </div>
+        </div>
+        <div class="pill"><span class="pd pdb"></span>Book Appointment</div>
+        <div class="pill"><span class="pd pdg"></span>Visit History</div>
+        <div class="pill"><span class="pd pdb"></span>Medicine Log</div>
+        <div class="pill"><span class="pd pdt"></span>My Profile</div>
+      </div>
+    </div>
+
+    <!-- Center: Admin Dashboard -->
+    <div class="dc dc-main" id="dcmain">
+      <div class="dp">
+        <div class="d-dots"><s class="dr"></s><s class="dy"></s><s class="dg"></s></div>
+        <div class="d-label">HealthConnect — Admin Dashboard</div>
+        <div class="d-stats">
+          <div class="ds"><div class="ds-l">Patients</div><div class="ds-v vb">2,847</div><div class="ds-d up">↑ 12% this month</div></div>
+          <div class="ds"><div class="ds-l">Doctors</div><div class="ds-v vt">184</div><div class="ds-d up">↑ 3 new</div></div>
+          <div class="ds"><div class="ds-l">Appts</div><div class="ds-v vi">638</div><div class="ds-d dn">↓ 4% this week</div></div>
+        </div>
+        <div class="d-chart">
+          <div class="dbar" style="height:37%"></div><div class="dbar" style="height:54%"></div>
+          <div class="dbar" style="height:45%"></div><div class="dbar" style="height:71%"></div>
+          <div class="dbar t" style="height:58%"></div><div class="dbar t" style="height:84%"></div>
+          <div class="dbar t" style="height:67%"></div><div class="dbar" style="height:91%"></div>
+          <div class="dbar" style="height:62%"></div><div class="dbar t" style="height:77%"></div>
+          <div class="dbar" style="height:50%"></div><div class="dbar t" style="height:97%;opacity:1"></div>
+        </div>
+        <div class="d-rows">
+          <div class="dr2"><div class="dav avb">AR</div><span class="drow-n">Arjun R. booked appointment</span><span class="dbadge bg">Done</span></div>
+          <div class="dr2"><div class="dav avt">DK</div><span class="drow-n">Dr. Kavitha added treatment</span><span class="dbadge bb">Record</span></div>
+          <div class="dr2"><div class="dav avi">SA</div><span class="drow-n">Admin altered patient data</span><span class="dbadge by">Edit</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right: Doctor side card -->
+    <div class="dc dc-right">
+      <div class="dp">
+        <div class="side-label">Doctor Portal</div>
+        <div class="pill"><span class="pd pdt"></span>Create Treatment</div>
+        <div class="pill"><span class="pd pdg"></span>Patient Records</div>
+        <div class="pill"><span class="pd pdt"></span>Unflag Medicine</div>
+        <div class="pill"><span class="pd pdb"></span>Edit Profile</div>
+        <div class="pill"><span class="pd pdi"></span>Consultations</div>
+        <div class="next-appt">
+          <div class="na-l">Next Patient</div>
+          <div class="na-n">Priya S. — 2:30 PM</div>
+          <div class="na-s">Cardiology Review</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="hr" id="hr1"></div>
+
+<!-- ═════════════════════ ROLES SECTION ══════════════════ -->
+<section id="roles" class="section">
+  <p class="sec-eyebrow"><span>Role-Based Portals</span></p>
+  <h2 class="sec-title"><span>Built for <span class="anim-grad">Every</span> Role</span></h2>
+  <p class="sec-desc" id="roles-desc">Three dedicated portals, one connected platform. Each experience precisely tailored to what matters most.</p>
+
+  <div class="roles-wrap">
+
+    <!-- ─── PATIENT ─── -->
+    <div class="role-row" id="patient-role">
+      <div class="role-particles" id="prp"></div>
+      <div class="role-text">
+        <div class="role-badge rb-p">
+          <svg class="rb-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M16 7a4 4 0 1 1-8 0 4 4 0 0 1 8 0zM12 14a7 7 0 0 0-7 7h14a7 7 0 0 0-7-7z"/>
+          </svg>
+          Patient Portal
+        </div>
+        <h3 class="role-name"><span>Your Personal<br>Health Hub</span></h3>
+        <p class="role-desc">A personal health companion that puts you in control of your entire medical journey — from booking to billing to prescriptions, all in one seamless experience.</p>
+        <ul class="role-feats">
+          <li class="rfeat"><div class="rfeat-check rch-p"><svg fill="none" stroke="#60a5fa" stroke-width="2.5" viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></div>Book &amp; manage appointments instantly</li>
+          <li class="rfeat"><div class="rfeat-check rch-p"><svg fill="none" stroke="#60a5fa" stroke-width="2.5" viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></div>Complete visit history &amp; treatment timeline</li>
+          <li class="rfeat"><div class="rfeat-check rch-p"><svg fill="none" stroke="#60a5fa" stroke-width="2.5" viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></div>Medicine history &amp; active prescriptions</li>
+          <li class="rfeat"><div class="rfeat-check rch-p"><svg fill="none" stroke="#60a5fa" stroke-width="2.5" viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></div>Personal profile &amp; health records</li>
+          <li class="rfeat"><div class="rfeat-check rch-p"><svg fill="none" stroke="#60a5fa" stroke-width="2.5" viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></div>Real-time appointment status updates</li>
+        </ul>
+        <a href="#features" class="role-cta rc-p">Patient Features <span class="cta-arr">→</span></a>
+      </div>
+      <div class="role-vis rvis-p tilt" id="pvis">
+        <div class="role-vis-inner">
+          <div class="rvis-head">
+            <span class="rvis-title">Appointments</span>
+            <div class="rvis-status"><div class="rvis-dot"></div>Live</div>
+          </div>
+          <div class="appt-list">
+            <div class="appt-item">
+              <div class="appt-info"><span class="appt-doc">Dr. Kavitha R.</span><span class="appt-type">Cardiology Check-up</span></div>
+              <span class="appt-time">Today 2:30</span>
+            </div>
+            <div class="appt-item">
+              <div class="appt-info"><span class="appt-doc">Dr. Suresh M.</span><span class="appt-type">Follow-up Visit</span></div>
+              <span class="appt-time" style="color:var(--t4)">Fri 10:00</span>
+            </div>
+            <div class="appt-item">
+              <div class="appt-info"><span class="appt-doc">Dr. Priya N.</span><span class="appt-type">Routine Checkup</span></div>
+              <span class="appt-time" style="color:var(--s4)">Mar 28</span>
+            </div>
+          </div>
+          <div style="font-size:.66rem;color:var(--s5);margin-bottom:.55rem;text-transform:uppercase;letter-spacing:.09em">Active Medicines</div>
+          <div class="med-strip">
+            <span class="med-pill">Metformin 500mg</span>
+            <span class="med-pill">Lisinopril</span>
+            <span class="med-pill">Atorvastatin</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ─── DOCTOR ─── -->
+    <div class="role-row rev" id="doctor-role">
+      <div class="role-particles" id="drp"></div>
+      <div class="role-text">
+        <div class="role-badge rb-d">
+          <svg class="rb-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5.586a1 1 0 0 1 .707.293l5.414 5.414A1 1 0 0 1 19 8.414V19a2 2 0 0 1-2 2z"/>
+          </svg>
+          Doctor Portal
+        </div>
+        <h3 class="role-name"><span>Clinical<br>Workspace</span></h3>
+        <p class="role-desc">A powerful clinical dashboard built for precision. Manage patient records, treatment histories, and medication flags with complete context at your fingertips.</p>
+        <ul class="role-feats">
+          <li class="rfeat"><div class="rfeat-check rch-d"><svg fill="none" stroke="#5eead4" stroke-width="2.5" viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></div>Create detailed treatment histories</li>
+          <li class="rfeat"><div class="rfeat-check rch-d"><svg fill="none" stroke="#5eead4" stroke-width="2.5" viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></div>Generate &amp; manage patient records</li>
+          <li class="rfeat"><div class="rfeat-check rch-d"><svg fill="none" stroke="#5eead4" stroke-width="2.5" viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></div>Unflag medicines with approval workflow</li>
+          <li class="rfeat"><div class="rfeat-check rch-d"><svg fill="none" stroke="#5eead4" stroke-width="2.5" viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></div>View &amp; edit professional profile</li>
+          <li class="rfeat"><div class="rfeat-check rch-d"><svg fill="none" stroke="#5eead4" stroke-width="2.5" viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></div>Rich patient consultation timeline</li>
+        </ul>
+        <a href="#features" class="role-cta rc-d">Doctor Features <span class="cta-arr">→</span></a>
+      </div>
+      <div class="role-vis rvis-d tilt" id="dvis">
+        <div class="role-vis-inner">
+          <div class="rvis-head">
+            <span class="rvis-title">Patient List</span>
+            <div class="rvis-status" style="color:var(--t4)"><div class="rvis-dot" style="background:var(--t4)"></div>Active</div>
+          </div>
+          <div class="patient-row">
+            <div class="pa-av">RS</div>
+            <div><div class="pa-name">Ravi Shankar</div><div class="pa-diag">Hypertension · Type 2 DM</div></div>
+            <span class="pa-tag pt-active">Active</span>
+          </div>
+          <div class="patient-row">
+            <div class="pa-av" style="background:rgba(37,99,235,.2);color:var(--b4)">PM</div>
+            <div><div class="pa-name">Priya Mehta</div><div class="pa-diag">Post-op Cardiology</div></div>
+            <span class="pa-tag pt-review">Review</span>
+          </div>
+          <div class="patient-row">
+            <div class="pa-av" style="background:rgba(99,102,241,.2);color:#a5b4fc">AK</div>
+            <div><div class="pa-name">Anand Kumar</div><div class="pa-diag">Routine Follow-up</div></div>
+            <span class="pa-tag pt-active">Active</span>
+          </div>
+          <div style="margin-top:1rem;padding:.7rem .85rem;background:rgba(13,148,136,.08);border-radius:10px;border:1px solid rgba(13,148,136,.15)">
+            <div style="font-size:.63rem;color:var(--s5);margin-bottom:4px;text-transform:uppercase;letter-spacing:.08em">Flagged Medicine</div>
+            <div style="display:flex;align-items:center;justify-content:space-between">
+              <span style="font-size:.78rem;color:var(--s2)">Warfarin 5mg — Ravi S.</span>
+              <span style="font-size:.68rem;padding:2px 8px;background:rgba(13,148,136,.2);color:var(--t4);border-radius:100px;cursor:none">Unflag →</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ─── ADMIN ─── -->
+    <div class="role-row" id="admin-role">
+      <div class="role-particles" id="arp"></div>
+      <div class="role-text">
+        <div class="role-badge rb-a">
+          <svg class="rb-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 0 0 2.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 0 0 1.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 0 0-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 0 0-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 0 0-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 0 0-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 0 0 1.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/>
+            <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
+          </svg>
+          Admin Portal
+        </div>
+        <h3 class="role-name"><span>Platform<br>Control Center</span></h3>
+        <p class="role-desc">Total administrative authority. Read, modify, or remove any patient or doctor data across the entire platform — with full audit visibility and governance.</p>
+        <ul class="role-feats">
+          <li class="rfeat"><div class="rfeat-check rch-a"><svg fill="none" stroke="#c7d2fe" stroke-width="2.5" viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></div>Full read access to all records</li>
+          <li class="rfeat"><div class="rfeat-check rch-a"><svg fill="none" stroke="#c7d2fe" stroke-width="2.5" viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></div>Modify any patient or doctor data</li>
+          <li class="rfeat"><div class="rfeat-check rch-a"><svg fill="none" stroke="#c7d2fe" stroke-width="2.5" viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></div>Delete records with full audit trail</li>
+          <li class="rfeat"><div class="rfeat-check rch-a"><svg fill="none" stroke="#c7d2fe" stroke-width="2.5" viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></div>System-wide analytics &amp; reporting</li>
+          <li class="rfeat"><div class="rfeat-check rch-a"><svg fill="none" stroke="#c7d2fe" stroke-width="2.5" viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></div>User access management &amp; permissions</li>
+        </ul>
+        <a href="#features" class="role-cta rc-a">Admin Features <span class="cta-arr">→</span></a>
+      </div>
+      <div class="role-vis rvis-a tilt" id="avis">
+        <div class="role-vis-inner">
+          <div class="rvis-head">
+            <span class="rvis-title">Platform Overview</span>
+            <div class="rvis-status" style="color:#a5b4fc"><div class="rvis-dot" style="background:#a5b4fc"></div>Admin</div>
+          </div>
+          <div class="admin-grid">
+            <div class="ag-item"><div class="ag-val agvb" data-ct="2847">0</div><div class="ag-lbl">Total Patients</div><div class="ag-bar"><div class="ag-bar-fill afb" style="width:0" data-w="75%"></div></div></div>
+            <div class="ag-item"><div class="ag-val agvt" data-ct="184">0</div><div class="ag-lbl">Doctors</div><div class="ag-bar"><div class="ag-bar-fill aft" style="width:0" data-w="45%"></div></div></div>
+            <div class="ag-item"><div class="ag-val agvi" data-ct="638">0</div><div class="ag-lbl">Active Appts</div><div class="ag-bar"><div class="ag-bar-fill afi" style="width:0" data-w="60%"></div></div></div>
+            <div class="ag-item"><div class="ag-val agvg">99%</div><div class="ag-lbl">Uptime</div><div class="ag-bar"><div class="ag-bar-fill afg" style="width:99%"></div></div></div>
+          </div>
+          <div class="action-log">
+            <div class="al-head">Audit Log</div>
+            <div class="al-row"><div class="al-dot2" style="background:var(--b4)"></div><span class="al-text">Patient record updated · Arjun R.</span><span class="al-time">2m ago</span></div>
+            <div class="al-row"><div class="al-dot2" style="background:var(--r6)"></div><span class="al-text">Doctor record deleted · Admin</span><span class="al-time">14m ago</span></div>
+            <div class="al-row"><div class="al-dot2" style="background:var(--t4)"></div><span class="al-text">New doctor registered · Dr. Shah</span><span class="al-time">1h ago</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<div class="hr" id="hr2"></div>
+
+<!-- ═══════════════════════ FEATURES ══════════════════════ -->
+<section id="features" class="section">
+  <p class="sec-eyebrow"><span>Platform Capabilities</span></p>
+  <h2 class="sec-title"><span>Everything You Need</span></h2>
+  <p class="sec-desc" id="feat-desc">Every feature built to eliminate friction. Click any feature to jump to the relevant role portal.</p>
+
+  <!-- filter tabs -->
+  <div class="feat-tabs">
+    <button class="ftab active" data-filter="all">All Features</button>
+    <button class="ftab" data-filter="patient" data-goto="patient-role">For Patients</button>
+    <button class="ftab" data-filter="doctor" data-goto="doctor-role">For Doctors</button>
+    <button class="ftab" data-filter="admin" data-goto="admin-role">For Admins</button>
+  </div>
+
+  <div class="feats-grid" id="feats-grid">
+
+    <div class="feat-card" data-role="patient">
+      <span class="feat-role-tag frt-p">Patient</span>
+      <div class="feat-icon fib">
+        <svg width="22" height="22" fill="none" stroke="#60a5fa" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+      </div>
+      <h4 class="feat-name">Smart Scheduling</h4>
+      <p class="feat-text">Book appointments in seconds. Doctors set availability, conflicts auto-resolve, and instant confirmations go to both parties.</p>
+      <a href="#patient-role" class="feat-link fl-p">Go to Patient Portal <span>→</span></a>
+    </div>
+
+    <div class="feat-card" data-role="doctor">
+      <span class="feat-role-tag frt-d">Doctor</span>
+      <div class="feat-icon fit">
+        <svg width="22" height="22" fill="none" stroke="#2dd4bf" stroke-width="2" viewBox="0 0 24 24"><path d="M9 12h6m-6 4h6m2 5H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5.586a1 1 0 0 1 .707.293l5.414 5.414A1 1 0 0 1 19 8.414V19a2 2 0 0 1-2 2z"/></svg>
+      </div>
+      <h4 class="feat-name">Medical Records</h4>
+      <p class="feat-text">Structured treatment histories, diagnoses, and clinical notes — versioned and instantly retrievable by authorized practitioners.</p>
+      <a href="#doctor-role" class="feat-link fl-d">Go to Doctor Portal <span>→</span></a>
+    </div>
+
+    <div class="feat-card" data-role="doctor">
+      <span class="feat-role-tag frt-d">Doctor</span>
+      <div class="feat-icon fii">
+        <svg width="22" height="22" fill="none" stroke="#a5b4fc" stroke-width="2" viewBox="0 0 24 24"><path d="M19.428 15.428a2 2 0 0 0-1.022-.547l-2.387-.477a6 6 0 0 0-3.86.517l-.318.158a6 6 0 0 1-3.86.517L6.05 15.21a2 2 0 0 0-1.806.547M8 4h8l-1 1v5.172a2 2 0 0 0 .586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 0 0 9 10.172V5L8 4z"/></svg>
+      </div>
+      <h4 class="feat-name">Medicine Management</h4>
+      <p class="feat-text">Flag and unflag medications, track prescriptions, and maintain complete medicine history with doctor-controlled approval flows.</p>
+      <a href="#doctor-role" class="feat-link fl-d">Go to Doctor Portal <span>→</span></a>
+    </div>
+
+    <div class="feat-card" data-role="admin">
+      <span class="feat-role-tag frt-a">Admin</span>
+      <div class="feat-icon fig">
+        <svg width="22" height="22" fill="none" stroke="#4ade80" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 19v-6a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2a2 2 0 0 0 2-2zm0 0V9a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v10m-6 0a2 2 0 0 0 2 2h2a2 2 0 0 0 2-2m0 0V5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-2a2 2 0 0 1-2-2z"/></svg>
+      </div>
+      <h4 class="feat-name">Platform Analytics</h4>
+      <p class="feat-text">System-wide metrics — usage trends, appointment rates, patient growth, and health metrics — all unified for admin control.</p>
+      <a href="#admin-role" class="feat-link fl-a">Go to Admin Portal <span>→</span></a>
+    </div>
+
+    <div class="feat-card" data-role="all">
+      <span class="feat-role-tag frt-all">All Roles</span>
+      <div class="feat-icon fib">
+        <svg width="22" height="22" fill="none" stroke="#60a5fa" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M16 7a4 4 0 1 1-8 0 4 4 0 0 1 8 0zM12 14a7 7 0 0 0-7 7h14a7 7 0 0 0-7-7z"/></svg>
+      </div>
+      <h4 class="feat-name">Profile Management</h4>
+      <p class="feat-text">Every role manages their own profile. Patients update personal data. Doctors manage clinical info. Admins oversee all users.</p>
+      <a href="#patient-role" class="feat-link fl-all">Explore All Portals <span>→</span></a>
+    </div>
+
+    <div class="feat-card" data-role="admin">
+      <span class="feat-role-tag frt-a">Admin</span>
+      <div class="feat-icon fii">
+        <svg width="22" height="22" fill="none" stroke="#a5b4fc" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 15v2m-6 4h12a2 2 0 0 0 2-2v-6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2zm10-10V7a4 4 0 0 0-8 0v4h8z"/></svg>
+      </div>
+      <h4 class="feat-name">Access Control</h4>
+      <p class="feat-text">Role-based permissions ensure each user sees only what they need. Granular read, write, and delete governance for admins.</p>
+      <a href="#admin-role" class="feat-link fl-a">Go to Admin Portal <span>→</span></a>
+    </div>
+
+    <div class="feat-card" data-role="patient">
+      <span class="feat-role-tag frt-p">Patient</span>
+      <div class="feat-icon fit">
+        <svg width="22" height="22" fill="none" stroke="#2dd4bf" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 1 1-18 0 9 9 0 0 1 18 0z"/></svg>
+      </div>
+      <h4 class="feat-name">Visit History</h4>
+      <p class="feat-text">A chronological log of every encounter — diagnoses, treatments, prescriptions, and doctor notes — fully searchable at any time.</p>
+      <a href="#patient-role" class="feat-link fl-p">Go to Patient Portal <span>→</span></a>
+    </div>
+
+    <div class="feat-card" data-role="doctor">
+      <span class="feat-role-tag frt-d">Doctor</span>
+      <div class="feat-icon fig">
+        <svg width="22" height="22" fill="none" stroke="#4ade80" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4.318 6.318a4.5 4.5 0 0 0 0 6.364L12 20.364l7.682-7.682a4.5 4.5 0 0 0-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 0 0-6.364 0z"/></svg>
+      </div>
+      <h4 class="feat-name">Care Timeline</h4>
+      <p class="feat-text">A rich visual timeline of every patient interaction — enabling faster, better-informed clinical decisions backed by full medical context.</p>
+      <a href="#doctor-role" class="feat-link fl-d">Go to Doctor Portal <span>→</span></a>
+    </div>
+
+  </div>
+</section>
+
+<div class="hr" id="hr3"></div>
+
+<!-- ═══════════════════════ STATS ═════════════════════════ -->
+<section id="stats" class="section" style="text-align:center">
+  <p class="sec-eyebrow"><span>Platform Scale</span></p>
+  <h2 class="sec-title"><span>Trusted by Thousands</span></h2>
+  <p class="sec-desc" id="stats-desc" style="margin-bottom:3.5rem">Growing every day — serving patients, clinicians, and administrators across the healthcare ecosystem.</p>
+
+  <div class="stats-row">
+    <div class="stat-card" data-delay="0">
+      <div class="snum snb" data-t="2847" data-s="">0</div>
+      <div class="slabel">Active Patients</div>
+      <div class="sbar"><div class="sbfill sfb" data-w="75%"></div></div>
+    </div>
+    <div class="stat-card" data-delay=".1">
+      <div class="snum snt" data-t="184" data-s="">0</div>
+      <div class="slabel">Registered Doctors</div>
+      <div class="sbar"><div class="sbfill sft" data-w="46%"></div></div>
+    </div>
+    <div class="stat-card" data-delay=".2">
+      <div class="snum sni" data-t="12480" data-s="">0</div>
+      <div class="slabel">Appointments Managed</div>
+      <div class="sbar"><div class="sbfill sfi" data-w="88%"></div></div>
+    </div>
+    <div class="stat-card" data-delay=".3">
+      <div class="snum sng" data-t="99" data-s="%">0</div>
+      <div class="slabel">Platform Uptime</div>
+      <div class="sbar"><div class="sbfill sfg" data-w="99%"></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════ CTA ═══════════════════════════ -->
+<section id="cta" class="section" style="padding-top:2rem">
+  <div class="cta-island" id="ctabox">
+    <div class="cta-ring-el cre1"></div>
+    <div class="cta-ring-el cre2"></div>
+    <div class="cta-ring-el cre3"></div>
+    <div class="cta-eyebrow">Ready to Get Started?</div>
+    <h2 class="cta-title">Connect Your Healthcare<br>on One Platform</h2>
+    <p class="cta-sub">Join thousands of patients, doctors, and administrators already using HealthConnect to streamline every aspect of healthcare management.</p>
+    <div class="cta-btns">
+      <div class="mw"><a href="#patient-role" class="btn-solid">Patient Portal →</a></div>
+      <div class="mw"><a href="#doctor-role" class="btn-out">Doctor Portal</a></div>
+      <div class="mw"><a href="#admin-role" class="btn-out">Admin Portal</a></div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="ft-brand">Health<b>Connect</b></div>
+  <ul class="ft-links">
+    <li><a href="#patient-role">Patient Portal</a></li>
+    <li><a href="#doctor-role">Doctor Portal</a></li>
+    <li><a href="#admin-role">Admin Portal</a></li>
+    <li><a href="#features">Features</a></li>
+    <li><a href="#stats">Platform Stats</a></li>
+  </ul>
+  <span class="ft-copy">© 2026 HealthConnect. All rights reserved.</span>
+</footer>
+
+<script src="./assets/js/script.js"></script>
+</body>
+</html>
